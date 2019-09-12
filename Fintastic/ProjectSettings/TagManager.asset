@@ -6,6 +6,7 @@ TagManager:
   tags:
   - projectile
   - FxTemporaire
+  - Fish
   layers:
   - Default
   - TransparentFX

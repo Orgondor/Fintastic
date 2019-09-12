@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.fintastic.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "G:\\Documents\\Fintastic\\Fintastic\\actions.json",
+      "action_manifest_path": "D:\\AGI19Projects\\Fintastic\\Fintastic\\actions.json",
       "strings": {
         "en_us": {
           "name": "Fintastic [Testing]"
