@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &35917027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,12 +165,18 @@ MonoBehaviour:
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onHeldUpdate:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &35917028
 MonoBehaviour:
@@ -442,7 +448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &107875658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,12 +471,18 @@ MonoBehaviour:
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onHeldUpdate:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &107875659
 MonoBehaviour:
@@ -835,7 +847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &210622784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,12 +870,18 @@ MonoBehaviour:
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onHeldUpdate:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &210622785
 MonoBehaviour:
@@ -1141,7 +1159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &395880511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,12 +1182,18 @@ MonoBehaviour:
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onHeldUpdate:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &395880512
 MonoBehaviour:
@@ -1652,7 +1676,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7fad960108fed5a42b4b5648ebfca24e, type: 2}
+  - {fileID: 2100000, guid: 317f049399c228f409016b2dd7d4a52b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1725,7 +1749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855433297}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.45, y: 1.85, z: 0}
+  m_LocalPosition: {x: 2.32, y: 1.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1406926414}
@@ -1903,7 +1927,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1f59d509b458c294bbc295595cb03e95, type: 2}
+  - {fileID: 2100000, guid: ce7e370b9059a0b4b8b65226b2a6744f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2076,17 +2100,17 @@ PrefabInstance:
     - target: {fileID: 6326659258731512500, guid: 9095b614b4eaf5c4b82a54e2640ed05c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.765
+      value: -0.492
       objectReference: {fileID: 0}
     - target: {fileID: 6326659258731512500, guid: 9095b614b4eaf5c4b82a54e2640ed05c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.668
+      value: 1.044
       objectReference: {fileID: 0}
     - target: {fileID: 6326659258731512500, guid: 9095b614b4eaf5c4b82a54e2640ed05c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.256
+      value: -1.016
       objectReference: {fileID: 0}
     - target: {fileID: 6326659258731512500, guid: 9095b614b4eaf5c4b82a54e2640ed05c,
         type: 3}
@@ -2422,7 +2446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1469967773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2445,12 +2469,18 @@ MonoBehaviour:
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onHeldUpdate:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &1469967774
 MonoBehaviour:
@@ -2811,12 +2841,18 @@ MonoBehaviour:
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onHeldUpdate:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &1562586149
 MonoBehaviour:
@@ -3214,7 +3250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 855433298}
-  fishSpeed: 1
+  speedMin: 1
+  speedMax: 2
 --- !u!4 &1848937845
 Transform:
   m_ObjectHideFlags: 0
@@ -3362,7 +3399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1967180887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3385,12 +3422,18 @@ MonoBehaviour:
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   onHeldUpdate:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: Valve.VR.InteractionSystem.HandEvent, SteamVR, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   interactable: {fileID: 0}
 --- !u!114 &1967180888
 MonoBehaviour:
@@ -3604,3 +3647,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+--- !u!1001 &457118534808146685
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2876108354386433232, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_Name
+      value: Net
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.8103225
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.36045423
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.4072515
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.51241153
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.024017898
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.014339199
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8582843
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 61.510002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 6.7330003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8330516584865361827, guid: 33689a4d9ac00cb40a84aff39a0b8b06,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 5.9240003
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33689a4d9ac00cb40a84aff39a0b8b06, type: 3}

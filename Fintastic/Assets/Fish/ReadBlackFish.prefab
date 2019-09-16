@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6326659258731512500}
   - component: {fileID: 486787172842128213}
+  - component: {fileID: 1009718498803655643}
   m_Layer: 0
   m_Name: ReadBlackFish
   m_TagString: Fish
@@ -128,6 +129,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &1009718498803655643
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612124565844561262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.022635877, y: 0.06536424, z: 0.2352671}
+  m_Center: {x: -0.0008815229, y: 0.00036734343, z: 0.023641437}
 --- !u!1001 &5281810284571285249
 PrefabInstance:
   m_ObjectHideFlags: 0
