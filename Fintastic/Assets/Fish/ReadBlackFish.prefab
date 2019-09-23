@@ -43,22 +43,22 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 091b98b6127e9584d86b335899e93e8c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 408ce775c3d94fa4882091e17a894820, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.137
-  m_Pitch: 0.5
+  m_Volume: 0.324
+  m_Pitch: 1.01
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 101
   DopplerLevel: 1
-  MinDistance: 0.1
-  MaxDistance: 0.2
+  MinDistance: 0.0990099
+  MaxDistance: 0.1
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 1
-  BypassListenerEffects: 1
+  BypassListenerEffects: 0
   BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
@@ -119,7 +119,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.547
+      value: 0.281
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -149,11 +149,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6326659258731512500}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: e21bf9f850fe5484fb18626bb9d5ef9c,
-        type: 3}
-      propertyPath: m_Name
-      value: redblack-simplefish (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e21bf9f850fe5484fb18626bb9d5ef9c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -223,6 +218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: e21bf9f850fe5484fb18626bb9d5ef9c,
+        type: 3}
+      propertyPath: m_Name
+      value: redblack-simplefish (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e21bf9f850fe5484fb18626bb9d5ef9c, type: 3}

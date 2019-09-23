@@ -61,7 +61,13 @@ public class FishSchoolBehavior : MonoBehaviour
         //         fish.transform.position = fish.transform.position + fish.transform.forward * fish.speed * Time.deltaTime;
         //     }
         // }
-
+        for (int i = fishes.Count - 1; i >= 0; i--)
+        {
+            if (!fishes[i].transform)
+            {
+                fishes.Remove(fishes[i]);
+            }
+        }
         foreach (var fish in fishes)
         {
             updateFishVelocity(fish);
