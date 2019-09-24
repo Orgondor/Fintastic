@@ -6,6 +6,7 @@ public class FishSchoolBehavior : MonoBehaviour
 {
     private class Fish
     {
+        public Rigidbody rb;
         public Transform transform;
         public float speed;
         public Vector3 velocity;
@@ -43,6 +44,7 @@ public class FishSchoolBehavior : MonoBehaviour
             {
                 Fish tmp = new Fish();
                 tmp.transform = trans;
+                tmp.rb = go.GetComponent<Rigidbody>();
                 tmp.speed = Random.Range(speedMin, speedMax);
                 tmp.velocity = trans.forward * tmp.speed;
                 fishes.Add(tmp);
@@ -71,8 +73,10 @@ public class FishSchoolBehavior : MonoBehaviour
         foreach (var fish in fishes)
         {
             updateFishVelocity(fish);
+            // fish.transform.LookAt(fish.transform.position + fish.velocity);
+            // fish.transform.position = fish.transform.position + fish.velocity * Time.deltaTime;
+            fish.rb.velocity = fish.velocity;
             fish.transform.LookAt(fish.transform.position + fish.velocity);
-            fish.transform.position = fish.transform.position + fish.velocity * Time.deltaTime;
         }
     }
 
