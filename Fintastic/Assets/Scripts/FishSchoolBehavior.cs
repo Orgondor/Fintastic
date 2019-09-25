@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class FishSchoolBehavior : MonoBehaviour
 {
@@ -46,14 +47,14 @@ public class FishSchoolBehavior : MonoBehaviour
                 tmp.transform = trans;
                 tmp.rb = go.GetComponent<Rigidbody>();
                 tmp.speed = Random.Range(speedMin, speedMax);
-                tmp.velocity = trans.forward * tmp.speed;
+                tmp.velocity = trans.forward;
                 fishes.Add(tmp);
             }
         }
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // foreach (var fish in fishes)
         // {
@@ -75,8 +76,30 @@ public class FishSchoolBehavior : MonoBehaviour
             updateFishVelocity(fish);
             // fish.transform.LookAt(fish.transform.position + fish.velocity);
             // fish.transform.position = fish.transform.position + fish.velocity * Time.deltaTime;
+
+            //fish.rb.velocity = fish.accel * Time.deltaTime;
+            //fish.transform.LookAt(fish.transform.position + fish.accel);
+
+            // Project the acceletation vector on to the forward-right plane
+            Vector3 projected = fish.velocity - Vector3.Dot(fish.velocity, fish.transform.up) * fish.transform.up;
+            float Yaw = Mathf.Acos(Vector3.Dot(projected, fish.transform.forward) * (1 / projected.magnitude));
+            if (Vector3.Dot(fish.transform.right, projected) < 0)
+                Yaw = -Yaw;
+            if (Yaw != Yaw)
+                Yaw = 0;
+
+            // Project the acceletation vector on to the forward-up plane
+            projected = fish.velocity - Vector3.Dot(fish.velocity, fish.transform.right) * fish.transform.right;
+            float Pitch = Mathf.Acos(Vector3.Dot(projected, fish.transform.forward) * (1 / projected.magnitude));
+            if (Vector3.Dot(fish.transform.up, projected) > 0)
+                Pitch = -Pitch;
+            if (Pitch != Pitch)
+                Pitch = 0;
+
+
             fish.rb.velocity = fish.velocity;
-            fish.transform.LookAt(fish.transform.position + fish.velocity);
+            Quaternion rotator = Quaternion.Euler(Pitch, Yaw, -fish.rb.rotation.eulerAngles.z);
+            fish.rb.MoveRotation(fish.rb.rotation * rotator);
         }
     }
 
@@ -145,6 +168,17 @@ public class FishSchoolBehavior : MonoBehaviour
         {
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(target.position, 0.1f);
+        }
+
+        if (EditorApplication.isPlaying)
+        {
+            foreach (var fish in fishes)
+            {
+                if (fish.transform)
+                {
+                    Gizmos.DrawLine(fish.transform.position, fish.transform.position + fish.velocity);
+                }
+            }
         }
     }
 }
