@@ -74,32 +74,9 @@ public class FishSchoolBehavior : MonoBehaviour
         foreach (var fish in fishes)
         {
             updateFishVelocity(fish);
-            // fish.transform.LookAt(fish.transform.position + fish.velocity);
-            // fish.transform.position = fish.transform.position + fish.velocity * Time.deltaTime;
-
-            //fish.rb.velocity = fish.accel * Time.deltaTime;
-            //fish.transform.LookAt(fish.transform.position + fish.accel);
-
-            // Project the acceletation vector on to the forward-right plane
-            Vector3 projected = fish.velocity - Vector3.Dot(fish.velocity, fish.transform.up) * fish.transform.up;
-            float Yaw = Mathf.Acos(Vector3.Dot(projected, fish.transform.forward) * (1 / projected.magnitude));
-            if (Vector3.Dot(fish.transform.right, projected) < 0)
-                Yaw = -Yaw;
-            if (Yaw != Yaw)
-                Yaw = 0;
-
-            // Project the acceletation vector on to the forward-up plane
-            projected = fish.velocity - Vector3.Dot(fish.velocity, fish.transform.right) * fish.transform.right;
-            float Pitch = Mathf.Acos(Vector3.Dot(projected, fish.transform.forward) * (1 / projected.magnitude));
-            if (Vector3.Dot(fish.transform.up, projected) > 0)
-                Pitch = -Pitch;
-            if (Pitch != Pitch)
-                Pitch = 0;
-
 
             fish.rb.velocity = fish.velocity;
-            Quaternion rotator = Quaternion.Euler(Pitch, Yaw, -fish.rb.rotation.eulerAngles.z);
-            fish.rb.MoveRotation(fish.rb.rotation * rotator);
+            fish.rb.MoveRotation(Quaternion.LookRotation(fish.velocity, new Vector3(0,1,0)));
         }
     }
 
