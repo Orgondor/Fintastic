@@ -30,11 +30,14 @@ public class FishSchoolBehavior : MonoBehaviour
     public float avoidanceAccelWeight = 2;
     private float weightSum = 0;
 
+    private int initialSchoolSize;
 
     // Start is called before the first frame update
     void Start()
     {
         weightSum = targetAccelWeight + closeFishAccelWeight + avoidanceAccelWeight;
+
+        initialSchoolSize = transform.childCount;
 
         fishes = new List<Fish>();
         for (int i = 0; i < transform.childCount; i++)
@@ -51,6 +54,7 @@ public class FishSchoolBehavior : MonoBehaviour
                 fishes.Add(tmp);
             }
         }
+        
     }
 
     // Update is called once per frame
@@ -78,6 +82,18 @@ public class FishSchoolBehavior : MonoBehaviour
             fish.rb.velocity = fish.velocity;
             fish.rb.MoveRotation(Quaternion.LookRotation(fish.velocity, new Vector3(0,1,0)));
         }
+
+        //respawn new fish
+        /*if (fishes.size <= initialSchoolSize / 2) {
+
+            int rnd = Random.Range(1, initialSchoolSize - fishes.size);
+
+            for (int i = 0; i <= rnd; i++)
+            {
+                spawnFish();
+            }
+        }*/
+        
     }
 
     private void updateFishVelocity(Fish fish)
@@ -157,5 +173,9 @@ public class FishSchoolBehavior : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void spawnFish() { 
+        
     }
 }
