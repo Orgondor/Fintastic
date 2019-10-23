@@ -126,12 +126,11 @@ public class SharkBehaviour : MonoBehaviour
                 this.transform.Translate(move);                
             }
 
-
-            if (distanceToTarget <= minDistanceToTarget)
-            {
-                circling = true;
+            if (distanceToTarget <= minDistanceToTarget) {
                 clockwise = true;
+                circling = true;
             }
+            
 
             //close to target
             /*if (distanceToTarget <= 2 * minDistanceToTarget)
