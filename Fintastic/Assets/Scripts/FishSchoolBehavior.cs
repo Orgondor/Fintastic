@@ -20,6 +20,8 @@ public class FishSchoolBehavior : MonoBehaviour
     }
 
     private List<Fish> fishes;
+    private List<Fish> fishesToRespawn;
+
     public Transform target;
     public float speedMin = 0.4f;
     public float speedMax = 0.6f;
@@ -72,6 +74,15 @@ public class FishSchoolBehavior : MonoBehaviour
         {
             if (!fishes[i].transform)
             {
+                //THIS NEEDS TO GO TO BEFORE THE FISH IS CAUGHT!!
+                /*Debug.Log("REMOVING FISH");
+                Fish tmp = new Fish();
+                tmp.transform = fishes[i].transform;
+                tmp.rb = fishes[i].rb;
+                tmp.speed = Random.Range(speedMin, speedMax);
+                tmp.velocity = fishes[i].velocity;
+                fishesToRespawn.Add(tmp);*/
+
                 fishes.Remove(fishes[i]);
             }
         }
@@ -84,15 +95,18 @@ public class FishSchoolBehavior : MonoBehaviour
         }
 
         //respawn new fish
-        /*if (fishes.size <= initialSchoolSize / 2) {
+        if (fishes.Count <= initialSchoolSize / 2) {
 
-            int rnd = Random.Range(1, initialSchoolSize - fishes.size);
+            int rnd = Random.Range(1, initialSchoolSize - fishes.Count);
 
-            for (int i = 0; i <= rnd; i++)
-            {
-                spawnFish();
+            if (fishesToRespawn.Count >= rnd) {
+                Debug.Log("RESPAWNING" + rnd + "FISH");
+                for (int i = 0; i <= rnd; i++)
+                {
+                    fishes.Add(fishesToRespawn[i]);
+                }
             }
-        }*/
+        }
         
     }
 
@@ -175,7 +189,4 @@ public class FishSchoolBehavior : MonoBehaviour
         }
     }
 
-    private void spawnFish() { 
-        
-    }
 }
