@@ -13,6 +13,7 @@ public class FishSchoolBehavior : MonoBehaviour
         public Vector3 velocity;
     }
 
+
     private struct FishDist
     {
         public Fish fish;
@@ -29,8 +30,13 @@ public class FishSchoolBehavior : MonoBehaviour
     public float closeFishAccelWeight = 4;
     public float avoidanceAccelWeight = 2;
     private float weightSum = 0;
+    public float avoidTridentWeight = 10;
 
     private int initialSchoolSize;
+
+    public GameObject tridentPrefab;
+    public GameObject trident;
+    public Transform triPos;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +44,7 @@ public class FishSchoolBehavior : MonoBehaviour
         weightSum = targetAccelWeight + closeFishAccelWeight + avoidanceAccelWeight;
 
         initialSchoolSize = transform.childCount;
+
 
         fishes = new List<Fish>();
         for (int i = 0; i < transform.childCount; i++)
@@ -54,7 +61,11 @@ public class FishSchoolBehavior : MonoBehaviour
                 fishes.Add(tmp);
             }
         }
-        
+
+        if (trident == null) //finds the trident object
+            trident = GameObject.FindWithTag("Trident");
+        Instantiate(tridentPrefab, trident.transform.position, trident.transform.rotation);
+
     }
 
     // Update is called once per frame
@@ -101,6 +112,13 @@ public class FishSchoolBehavior : MonoBehaviour
         // Toward goal
         Vector3 toTargetAccel = (Vector3.Normalize(target.position - fish.transform.position) * fish.speed) - fish.velocity;
 
+        Vector3 awayFromTrident = new Vector3(0, 0, 0);
+
+        if (Vector3.Distance(fish.transform.position, trident.transform.position)<1) //scare the fish with the trident.
+        {
+            awayFromTrident += Vector3.Normalize(fish.transform.position - trident.transform.position)*10;
+        }
+
         List<Fish> closest;
         findClosestFish(fish, numberOfCloseFish, out closest);
 
@@ -122,7 +140,7 @@ public class FishSchoolBehavior : MonoBehaviour
         clostestAverage *= 1 / closest.Count;
         Vector3 matchVelocityAccel = clostestAverage - fish.velocity;
 
-        fish.velocity += (toTargetAccel * targetAccelWeight + matchVelocityAccel * closeFishAccelWeight + avoidanceVec * avoidanceAccelWeight) * (1/weightSum) * Time.deltaTime;
+        fish.velocity += (toTargetAccel * targetAccelWeight + matchVelocityAccel * closeFishAccelWeight + avoidanceVec * avoidanceAccelWeight + awayFromTrident* avoidTridentWeight) * (1/weightSum) * Time.deltaTime;
     }
 
     private void findClosestFish(Fish refFish, int num, out List<Fish> closest)
