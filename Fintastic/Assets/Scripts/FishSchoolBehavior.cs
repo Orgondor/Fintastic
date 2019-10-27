@@ -21,9 +21,13 @@ public class FishSchoolBehavior : MonoBehaviour
     }
 
     private List<Fish> fishes;
-    private List<Fish> fishesToRespawn;
+    public GameObject fishPrefab;
 
     public Transform target;
+    public Transform spawnPoint;
+    public float respawnThreshold = 0.7f;
+    public float respawnTimeMin = 0.5f;
+    public float respawnTimeMax = 5.0f;
     public float speedMin = 0.4f;
     public float speedMax = 0.6f;
     public int numberOfCloseFish = 3;
@@ -34,19 +38,17 @@ public class FishSchoolBehavior : MonoBehaviour
     private float weightSum = 0;
     public float avoidTridentWeight = 10;
 
-    private int initialSchoolSize;
+    private int initialSchoolSize = 0;
+    private float respawnTime = 0.0f;
 
-    public GameObject tridentPrefab;
-    public GameObject trident;
-    public Transform triPos;
+    //public GameObject tridentPrefab;
+    //public GameObject trident;
+    //public Transform triPos;
 
     // Start is called before the first frame update
     void Start()
     {
         weightSum = targetAccelWeight + closeFishAccelWeight + avoidanceAccelWeight;
-
-        initialSchoolSize = transform.childCount;
-
 
         fishes = new List<Fish>();
         for (int i = 0; i < transform.childCount; i++)
@@ -64,39 +66,46 @@ public class FishSchoolBehavior : MonoBehaviour
             }
         }
 
-        if (trident == null) //finds the trident object
-            trident = GameObject.FindWithTag("Trident");
-        Instantiate(tridentPrefab, trident.transform.position, trident.transform.rotation);
+        initialSchoolSize = fishes.Count;
 
+        //if (trident == null) //finds the trident object
+        //    trident = GameObject.FindWithTag("Trident");
+        //Instantiate(tridentPrefab, trident.transform.position, trident.transform.rotation);
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        respawnTime = Mathf.Max(0.0f, respawnTime - Time.deltaTime);
+
+        // Respawn new fish
+        if (respawnTime <= 0.0f && fishes.Count <= initialSchoolSize * respawnThreshold)
+        {
+            GameObject go = GameObject.Instantiate(fishPrefab, spawnPoint.position, spawnPoint.rotation);
+            go.transform.SetParent(transform);
+
+            Fish tmp = new Fish();
+            tmp.transform = go.transform;
+            tmp.rb = go.GetComponent<Rigidbody>();
+            tmp.speed = Random.Range(speedMin, speedMax);
+            tmp.velocity = go.transform.forward;
+            fishes.Add(tmp);
+
+            respawnTime = Random.Range(respawnTimeMin, respawnTimeMax);
+        }
+    }
+
     void FixedUpdate()
     {
-        // foreach (var fish in fishes)
-        // {
-        //     if (fish.transform)
-        //     {
-        //         fish.transform.LookAt(target);
-        //         fish.transform.position = fish.transform.position + fish.transform.forward * fish.speed * Time.deltaTime;
-        //     }
-        // }
+        // Remove any fish that don't exist anymore
         for (int i = fishes.Count - 1; i >= 0; i--)
         {
             if (!fishes[i].transform)
             {
-                //THIS NEEDS TO GO TO BEFORE THE FISH IS CAUGHT!!
-                /*Debug.Log("REMOVING FISH");
-                Fish tmp = new Fish();
-                tmp.transform = fishes[i].transform;
-                tmp.rb = fishes[i].rb;
-                tmp.speed = Random.Range(speedMin, speedMax);
-                tmp.velocity = fishes[i].velocity;
-                fishesToRespawn.Add(tmp);*/
-
                 fishes.Remove(fishes[i]);
             }
         }
+
+        // Movement
         foreach (var fish in fishes)
         {
             updateFishVelocity(fish);
@@ -104,21 +113,6 @@ public class FishSchoolBehavior : MonoBehaviour
             fish.rb.velocity = fish.velocity;
             fish.rb.MoveRotation(Quaternion.LookRotation(fish.velocity, new Vector3(0,1,0)));
         }
-
-        //respawn new fish
-        if (fishes.Count <= initialSchoolSize / 2) {
-
-            int rnd = Random.Range(1, initialSchoolSize - fishes.Count);
-
-            if (fishesToRespawn.Count >= rnd) {
-                Debug.Log("RESPAWNING" + rnd + "FISH");
-                for (int i = 0; i <= rnd; i++)
-                {
-                    fishes.Add(fishesToRespawn[i]);
-                }
-            }
-        }
-        
     }
 
     private void updateFishVelocity(Fish fish)
@@ -128,10 +122,10 @@ public class FishSchoolBehavior : MonoBehaviour
 
         Vector3 awayFromTrident = new Vector3(0, 0, 0);
 
-        if (Vector3.Distance(fish.transform.position, trident.transform.position)<1) //scare the fish with the trident.
-        {
-            awayFromTrident += Vector3.Normalize(fish.transform.position - trident.transform.position)*10;
-        }
+        //if (Vector3.Distance(fish.transform.position, trident.transform.position)<1) //scare the fish with the trident.
+        //{
+        //    awayFromTrident += Vector3.Normalize(fish.transform.position - trident.transform.position)*10;
+        //}
 
         List<Fish> closest;
         findClosestFish(fish, numberOfCloseFish, out closest);
@@ -189,6 +183,13 @@ public class FishSchoolBehavior : MonoBehaviour
 
     void OnDrawGizmos()
     {
+        if (spawnPoint)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere(spawnPoint.position, 0.1f);
+            Gizmos.DrawLine(spawnPoint.position, spawnPoint.position + spawnPoint.forward);
+        }
+
         if (target)
         {
             Gizmos.color = Color.red;
@@ -201,6 +202,7 @@ public class FishSchoolBehavior : MonoBehaviour
             {
                 if (fish.transform)
                 {
+                    Gizmos.color = Color.blue;
                     Gizmos.DrawLine(fish.transform.position, fish.transform.position + fish.velocity);
                 }
             }
