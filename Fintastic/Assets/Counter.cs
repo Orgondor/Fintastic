@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Counter : MonoBehaviour
 {
+    public enum FishType { Salmon, Tuna, Mackarel};
 
     public TextMesh counter_text;
+    public FishType type;
 
     private int fishCaught = 0;
 
@@ -19,13 +21,22 @@ public class Counter : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //TODO specify type of fish and change in CompareTag()
+        //declare own variable for that
         bool correctFish = true;
 
-        if (correctFish) {
+        if (other.CompareTag("Net") && correctFish)
+        {
             fishCaught++;
+            counter_text.text = fishCaught.ToString();
+            //TODO let fish appear inside of basket
+            //TODO remove fish from net
         }
 
-        counter_text.text = fishCaught.ToString();
-
     }
+
 }

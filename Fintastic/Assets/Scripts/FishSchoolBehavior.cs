@@ -113,6 +113,7 @@ public class FishSchoolBehavior : MonoBehaviour
             fish.rb.velocity = fish.velocity;
             fish.rb.MoveRotation(Quaternion.LookRotation(fish.velocity, new Vector3(0,1,0)));
         }
+
     }
 
     private void updateFishVelocity(Fish fish)
