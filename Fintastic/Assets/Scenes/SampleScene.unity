@@ -16655,7 +16655,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 2800000, guid: f87e84a8971fcbd4eb898392c5ae3e4f, type: 3}
+  m_Cookie: {fileID: 2800000, guid: af57358939e372e48915385310d99271, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -31142,7 +31142,7 @@ GameObject:
   - component: {fileID: 1562586153}
   m_Layer: 0
   m_Name: Trident
-  m_TagString: Untagged
+  m_TagString: Trident
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
