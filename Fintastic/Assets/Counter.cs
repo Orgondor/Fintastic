@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Counter : MonoBehaviour
 {
-    public enum FishType { Salmon, Tuna, Mackarel};
+    public enum FishType { RedBlack, RedBetta, Discus};
 
     public TextMesh counter_text;
     public FishType type;
+
+    public GameObject net;
 
     private int fishCaught = 0;
 

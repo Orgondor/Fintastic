@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 { 
 
     public float time_inminutes;
+    public float time_offset_inseconds;
     public TextMesh watch;
     private float timeleft;
 
@@ -24,12 +26,22 @@ public class Timer : MonoBehaviour
         if (timeleft - Time.deltaTime <= 0)
         {
             //do something here
-            Debug.Log("TIME OVER");
-            watch.text = "00:00";
+            if (watch.text == "00:00")
+            {
+                watch.text = "     ";
+            }
+            else
+            {
+                watch.text = "00:00";
+            }
         }
         else { 
             watch.text = timeToString(timeleft);
             timeleft -= Time.deltaTime;
+        }
+
+        if (timeleft - Time.deltaTime <= time_inminutes * 60.0f + time_offset_inseconds) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         
     }
