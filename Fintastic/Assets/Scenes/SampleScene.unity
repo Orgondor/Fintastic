@@ -16572,7 +16572,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 2800000, guid: e9d5f272fe9cc594090784f934d5f30e, type: 3}
+  m_Cookie: {fileID: 2800000, guid: 40b3b2b6ca6e1624fad90f8c23c72039, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -31062,13 +31062,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1562586152}
   - component: {fileID: 1562586151}
+  - component: {fileID: 1562586154}
   - component: {fileID: 1562586150}
   - component: {fileID: 1562586149}
   - component: {fileID: 1562586148}
   - component: {fileID: 1562586153}
   m_Layer: 0
   m_Name: Trident
-  m_TagString: Untagged
+  m_TagString: Trident
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31241,6 +31242,22 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &1562586154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562586147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97786ebea1f0776478b94ce742dc57e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabPinch:
+    actionPath: 
+    needsReinit: 0
+  inputSource: 1
 --- !u!4 &1572868874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4289460894625026446, guid: 156a2d321e521b44487252fe50d45d29,
