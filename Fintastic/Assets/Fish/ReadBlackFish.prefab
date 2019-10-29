@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1264733507525061602}
   - component: {fileID: 3315896807553974554}
   - component: {fileID: 8166210129520470612}
+  - component: {fileID: 556795528186472485}
   m_Layer: 0
   m_Name: ReadBlackFish
   m_TagString: Fish
@@ -221,6 +222,21 @@ CapsuleCollider:
   m_Height: 0.1624425
   m_Direction: 2
   m_Center: {x: 0, y: -0.07, z: -0.041419894}
+--- !u!114 &556795528186472485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612124565844561262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859e081bc48cdc94893d4015cd12f51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionAvoidanceVec: {x: 0, y: 0, z: 0}
+  CollisionAvoidanceStartSpeed: 100
+  SpeedDecayTime: 0.1
 --- !u!1001 &871600041933946793
 PrefabInstance:
   m_ObjectHideFlags: 0

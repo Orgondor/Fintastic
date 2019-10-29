@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 983404401685579374}
   - component: {fileID: 4715656335178857334}
   - component: {fileID: 3626502176323091723}
+  - component: {fileID: 2775360988113005878}
   m_Layer: 0
   m_Name: DiscusFish
   m_TagString: Fish
@@ -108,6 +109,21 @@ CapsuleCollider:
   m_Height: 0.31
   m_Direction: 2
   m_Center: {x: 0, y: -0.07, z: -0.03}
+--- !u!114 &2775360988113005878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3928451100284078270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859e081bc48cdc94893d4015cd12f51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionAvoidanceVec: {x: 0, y: 0, z: 0}
+  CollisionAvoidanceStartSpeed: 100
+  SpeedDecayTime: 0.1
 --- !u!1001 &3928451100686870479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,11 +131,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3928451100284078257}
     m_Modifications:
-    - target: {fileID: 36228744900445949, guid: 93e24f509d149d64287c5a6cfd609d52,
-        type: 3}
-      propertyPath: m_Name
-      value: DiscusFish
-      objectReference: {fileID: 0}
     - target: {fileID: 3953012587287147758, guid: 93e24f509d149d64287c5a6cfd609d52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -174,6 +185,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 36228744900445949, guid: 93e24f509d149d64287c5a6cfd609d52,
+        type: 3}
+      propertyPath: m_Name
+      value: DiscusFish
       objectReference: {fileID: 0}
     - target: {fileID: 8634294024473896924, guid: 93e24f509d149d64287c5a6cfd609d52,
         type: 3}

@@ -11,6 +11,7 @@ public class FishSchoolBehavior : MonoBehaviour
         public Transform transform;
         public float speed;
         public Vector3 velocity;
+        public FishCollision collision;
     }
 
 
@@ -58,6 +59,7 @@ public class FishSchoolBehavior : MonoBehaviour
                 Fish tmp = new Fish();
                 tmp.transform = trans;
                 tmp.rb = go.GetComponent<Rigidbody>();
+                tmp.collision = go.GetComponent<FishCollision>();
                 tmp.speed = Random.Range(speedMin, speedMax);
                 tmp.velocity = trans.forward;
                 fishes.Add(tmp);
@@ -83,6 +85,7 @@ public class FishSchoolBehavior : MonoBehaviour
             Fish tmp = new Fish();
             tmp.transform = go.transform;
             tmp.rb = go.GetComponent<Rigidbody>();
+            tmp.collision = go.GetComponent<FishCollision>();
             tmp.speed = Random.Range(speedMin, speedMax);
             tmp.velocity = go.transform.forward;
             fishes.Add(tmp);
@@ -110,7 +113,6 @@ public class FishSchoolBehavior : MonoBehaviour
             fish.rb.velocity = fish.velocity;
             fish.rb.MoveRotation(Quaternion.LookRotation(fish.velocity, new Vector3(0,1,0)));
         }
-
     }
 
     private void updateFishVelocity(Fish fish)
@@ -148,8 +150,11 @@ public class FishSchoolBehavior : MonoBehaviour
             clostestAverage *= 1 / closest.Count;
         }
         Vector3 matchVelocityAccel = clostestAverage - fish.velocity;
+        Vector3 collisionVec = Vector3.zero;
+        if (fish.collision)
+            collisionVec = fish.collision.CollisionAvoidanceVec;
 
-        fish.velocity += (toTargetAccel * targetAccelWeight + matchVelocityAccel * closeFishAccelWeight + avoidanceVec * avoidanceAccelWeight + awayFromTrident* avoidTridentWeight) * (1/weightSum) * Time.deltaTime;
+        fish.velocity += (toTargetAccel * targetAccelWeight + matchVelocityAccel * closeFishAccelWeight + avoidanceVec * avoidanceAccelWeight + awayFromTrident * avoidTridentWeight + collisionVec) * (1/weightSum) * Time.deltaTime;
     }
 
     private void findClosestFish(Fish refFish, int num, out List<Fish> closest)

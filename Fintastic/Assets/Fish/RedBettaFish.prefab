@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 9193969573827830476}
   - component: {fileID: 5242064653525529357}
   - component: {fileID: 8652027446677583038}
+  - component: {fileID: 1626575416634312588}
   m_Layer: 0
   m_Name: RedBettaFish
   m_TagString: Fish
@@ -318,6 +319,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1626575416634312588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2830178684865068453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859e081bc48cdc94893d4015cd12f51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionAvoidanceVec: {x: 0, y: 0, z: 0}
+  CollisionAvoidanceStartSpeed: 100
+  SpeedDecayTime: 0.1
 --- !u!1 &4843372098959317049
 GameObject:
   m_ObjectHideFlags: 0
