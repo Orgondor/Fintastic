@@ -134,19 +134,22 @@ public class FishSchoolBehavior : MonoBehaviour
         // Velocity matching & Collision avoidance
         Vector3 clostestAverage = new Vector3(0,0,0);
         Vector3 avoidanceVec = new Vector3(0,0,0);
-        foreach (var close in closest)
+        if (closest.Count > 0)
         {
-            clostestAverage += close.velocity;
-            // Add for avoidance if in front
-            Vector3 toClose = close.transform.position - fish.transform.position;
-            if(Vector3.Dot(fish.transform.forward, toClose) > 0)
+            foreach (var close in closest)
             {
-                float closeDist = Vector3.Distance(close.transform.position, fish.transform.position);
-                Vector3 perpendicular = Vector3.Cross(fish.transform.forward, toClose);
-                avoidanceVec += Vector3.Normalize(Vector3.Cross(toClose, perpendicular)) * (niceDistance / closeDist);
+                clostestAverage += close.velocity;
+                // Add for avoidance if in front
+                Vector3 toClose = close.transform.position - fish.transform.position;
+                if(Vector3.Dot(fish.transform.forward, toClose) > 0)
+                {
+                    float closeDist = Vector3.Distance(close.transform.position, fish.transform.position);
+                    Vector3 perpendicular = Vector3.Cross(fish.transform.forward, toClose);
+                    avoidanceVec += Vector3.Normalize(Vector3.Cross(toClose, perpendicular)) * (niceDistance / closeDist);
+                }
             }
+            clostestAverage *= 1 / closest.Count;
         }
-        clostestAverage *= 1 / closest.Count;
         Vector3 matchVelocityAccel = clostestAverage - fish.velocity;
 
         fish.velocity += (toTargetAccel * targetAccelWeight + matchVelocityAccel * closeFishAccelWeight + avoidanceVec * avoidanceAccelWeight + awayFromTrident* avoidTridentWeight) * (1/weightSum) * Time.deltaTime;
