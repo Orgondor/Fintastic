@@ -36,14 +36,12 @@ public class FishSchoolBehavior : MonoBehaviour
     public float closeFishAccelWeight = 4;
     public float avoidanceAccelWeight = 2;
     private float weightSum = 0;
-    public float avoidTridentWeight = 10;
+    public float avoidTridentWeight = 100;
 
     private int initialSchoolSize = 0;
     private float respawnTime = 0.0f;
 
-    public GameObject tridentPrefab;
-    public GameObject trident;
-    public Transform triPos;
+    private GameObject trident;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +68,6 @@ public class FishSchoolBehavior : MonoBehaviour
 
         if (trident == null) //finds the trident object
             trident = GameObject.FindWithTag("Trident");
-        Instantiate(tridentPrefab, trident.transform.position, trident.transform.rotation);
     }
 
     void Update()
@@ -125,7 +122,7 @@ public class FishSchoolBehavior : MonoBehaviour
 
         if (Vector3.Distance(fish.transform.position, trident.transform.position)<1) //scare the fish with the trident.
         {
-            awayFromTrident += Vector3.Normalize(fish.transform.position - trident.transform.position)*10;
+            awayFromTrident += Vector3.Normalize(fish.transform.position - trident.transform.position);
         }
 
         List<Fish> closest;

@@ -16572,7 +16572,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 2800000, guid: a4200b6d99b21f44e851edd1622c2680, type: 3}
+  m_Cookie: {fileID: 2800000, guid: e9d5f272fe9cc594090784f934d5f30e, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -20359,6 +20359,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1618351862}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1013035900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1013035901}
+  m_Layer: 0
+  m_Name: TridentScarePos
+  m_TagString: Trident
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1013035901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013035900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.919, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1562586152}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1013357020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1233292902102552502, guid: 358935ec31e64c74ab299d62605ffa41,
@@ -29816,9 +29846,6 @@ MonoBehaviour:
   closeFishAccelWeight: 4
   avoidanceAccelWeight: 2
   avoidTridentWeight: 10
-  tridentPrefab: {fileID: 0}
-  trident: {fileID: 0}
-  triPos: {fileID: 0}
 --- !u!4 &1469053002
 Transform:
   m_ObjectHideFlags: 0
@@ -31041,7 +31068,7 @@ GameObject:
   - component: {fileID: 1562586153}
   m_Layer: 0
   m_Name: Trident
-  m_TagString: Trident
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31198,6 +31225,7 @@ Transform:
   - {fileID: 891378245}
   - {fileID: 194915892}
   - {fileID: 454092580}
+  - {fileID: 1013035901}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 61.676003, y: 0, z: 0}
@@ -34183,9 +34211,6 @@ MonoBehaviour:
   closeFishAccelWeight: 4
   avoidanceAccelWeight: 2
   avoidTridentWeight: 10
-  tridentPrefab: {fileID: 0}
-  trident: {fileID: 0}
-  triPos: {fileID: 0}
 --- !u!4 &1848937845
 Transform:
   m_ObjectHideFlags: 0
@@ -35541,9 +35566,6 @@ MonoBehaviour:
   closeFishAccelWeight: 4
   avoidanceAccelWeight: 2
   avoidTridentWeight: 10
-  tridentPrefab: {fileID: 0}
-  trident: {fileID: 0}
-  triPos: {fileID: 0}
 --- !u!4 &2013192932
 Transform:
   m_ObjectHideFlags: 0
