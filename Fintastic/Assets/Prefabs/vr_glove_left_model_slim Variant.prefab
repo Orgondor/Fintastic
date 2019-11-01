@@ -11,6 +11,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: vr_glove_left_model_slim Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013038800862, guid: 638779290bce1af49b356f33dcc6fccf,
+        type: 3}
+      propertyPath: mirroring
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000013303659494, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.2631912
@@ -55,15 +60,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012036868996, guid: 638779290bce1af49b356f33dcc6fccf,
+        type: 3}
+      propertyPath: overridePreviewLeftHandPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8199791991837813029, guid: 638779290bce1af49b356f33dcc6fccf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 137000013445226782, guid: 638779290bce1af49b356f33dcc6fccf,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1cb157853c01ccd47a7aa5db04dbc367, type: 2}
-    - target: {fileID: 790349382959926136, guid: 638779290bce1af49b356f33dcc6fccf,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}

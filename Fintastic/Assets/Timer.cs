@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
     public float time_offset_inseconds;
     public TextMesh watch;
     private float timeleft;
+    private float timeOffset = 0.0f;
+    private float prevTimeOffset = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,27 +24,31 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (timeleft - Time.deltaTime <= 0)
         {
-            //do something here
-            if (watch.text == "00:00")
+ 	    timeOffset += Time.deltaTime;
+            if (timeOffset - prevTimeOffset >= 0.5)
             {
-                watch.text = "     ";
-            }
-            else
-            {
-                watch.text = "00:00";
-            }
+		if (watch.text == "00:00"){
+			watch.text = "     ";
+		}                
+            	else
+            	{
+                	watch.text = "00:00";
+            	}
+	    	prevTimeOffset = timeOffset;
+	    }	
         }
         else { 
             watch.text = timeToString(timeleft);
-            timeleft -= Time.deltaTime;
         }
 
-        if (timeleft - Time.deltaTime <= time_inminutes * 60.0f + time_offset_inseconds) {
+	timeleft -= Time.deltaTime;	
+        /*if (timeleft + time_offset_inseconds <= 0) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+	    timeleft = time_inminutes * 60.0f;
+            watch.text = timeToString(time_inminutes);
+        }*/
         
     }
 
