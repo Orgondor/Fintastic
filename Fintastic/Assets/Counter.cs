@@ -9,8 +9,6 @@ public class Counter : MonoBehaviour
     public TextMesh counter_text;
     public FishType type;
 
-    public GameObject net;
-
     private int fishCaught = 0;
 
     // Start is called before the first frame update
@@ -33,8 +31,13 @@ public class Counter : MonoBehaviour
 
         if (other.CompareTag("Net") && correctFish)
         {
-            fishCaught++;
-            counter_text.text = fishCaught.ToString();
+            SimpleNet net = other.GetComponentInChildren<SimpleNet>();
+            if (net && net.caughtFish)
+            {
+                fishCaught++;
+                counter_text.text = fishCaught.ToString();
+                net.Deliver();
+            }
             //TODO let fish appear inside of basket
             //TODO remove fish from net
         }

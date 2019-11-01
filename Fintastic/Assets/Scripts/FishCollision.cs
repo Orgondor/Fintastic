@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FishCollision : MonoBehaviour
 {
+    public FishSchoolBehavior School = null;
     private Vector3 CollisionAvoidanceDir;
     public Vector3 CollisionAvoidanceVec;
     public float CollisionAvoidanceStartSpeed = 100.0f;

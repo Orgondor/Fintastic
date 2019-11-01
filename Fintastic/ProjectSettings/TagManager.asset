@@ -7,6 +7,7 @@ TagManager:
   - Fish
   - Net
   - Trident
+  - Catch
   layers:
   - Default
   - TransparentFX

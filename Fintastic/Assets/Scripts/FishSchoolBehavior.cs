@@ -42,7 +42,10 @@ public class FishSchoolBehavior : MonoBehaviour
     private int initialSchoolSize = 0;
     private float respawnTime = 0.0f;
 
+
+
     private GameObject trident;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +63,7 @@ public class FishSchoolBehavior : MonoBehaviour
                 tmp.transform = trans;
                 tmp.rb = go.GetComponent<Rigidbody>();
                 tmp.collision = go.GetComponent<FishCollision>();
+                tmp.collision.School = this;
                 tmp.speed = Random.Range(speedMin, speedMax);
                 tmp.velocity = trans.forward;
                 fishes.Add(tmp);
@@ -70,6 +74,7 @@ public class FishSchoolBehavior : MonoBehaviour
 
         if (trident == null) //finds the trident object
             trident = GameObject.FindWithTag("Trident");
+        
     }
 
     void Update()
@@ -86,6 +91,7 @@ public class FishSchoolBehavior : MonoBehaviour
             tmp.transform = go.transform;
             tmp.rb = go.GetComponent<Rigidbody>();
             tmp.collision = go.GetComponent<FishCollision>();
+            tmp.collision.School = this;
             tmp.speed = Random.Range(speedMin, speedMax);
             tmp.velocity = go.transform.forward;
             fishes.Add(tmp);
@@ -124,7 +130,7 @@ public class FishSchoolBehavior : MonoBehaviour
 
         if (Vector3.Distance(fish.transform.position, trident.transform.position)<1) //scare the fish with the trident.
         {
-            awayFromTrident += Vector3.Normalize(fish.transform.position - trident.transform.position);
+            awayFromTrident += Vector3.Normalize(fish.transform.position - trident.transform.position)*10;
         }
 
         List<Fish> closest;
@@ -155,6 +161,8 @@ public class FishSchoolBehavior : MonoBehaviour
             collisionVec = fish.collision.CollisionAvoidanceVec;
 
         fish.velocity += (toTargetAccel * targetAccelWeight + matchVelocityAccel * closeFishAccelWeight + avoidanceVec * avoidanceAccelWeight + awayFromTrident * avoidTridentWeight + collisionVec) * (1/weightSum) * Time.deltaTime;
+
+        
     }
 
     private void findClosestFish(Fish refFish, int num, out List<Fish> closest)
