@@ -16819,7 +16819,7 @@ PrefabInstance:
     - target: {fileID: 8736127691505173398, guid: 0c410cd5c251d6b46bc0a9d821411425,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6208938
+      value: 0.842
       objectReference: {fileID: 0}
     - target: {fileID: 8736127691505173398, guid: 0c410cd5c251d6b46bc0a9d821411425,
         type: 3}
@@ -16829,7 +16829,7 @@ PrefabInstance:
     - target: {fileID: 8736127691505173398, guid: 0c410cd5c251d6b46bc0a9d821411425,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.8539679
+      value: -0.939
       objectReference: {fileID: 0}
     - target: {fileID: 8736127691505173398, guid: 0c410cd5c251d6b46bc0a9d821411425,
         type: 3}
@@ -17556,7 +17556,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 2800000, guid: e9d5f272fe9cc594090784f934d5f30e, type: 3}
+  m_Cookie: {fileID: 2800000, guid: f87e84a8971fcbd4eb898392c5ae3e4f, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -23364,19 +23364,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: WhiteShark
       objectReference: {fileID: 0}
-    - target: {fileID: 4224801822505238522, guid: c3dd5e5801008dc4389e4be28e4d8493,
+    - target: {fileID: -8214231186863168688, guid: c3dd5e5801008dc4389e4be28e4d8493,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3321153643654687595, guid: c3dd5e5801008dc4389e4be28e4d8493,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -3819681095382407790, guid: c3dd5e5801008dc4389e4be28e4d8493,
-        type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7521214134985992077, guid: c3dd5e5801008dc4389e4be28e4d8493,
@@ -23479,9 +23469,9 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: -8214231186863168688, guid: c3dd5e5801008dc4389e4be28e4d8493,
+    - target: {fileID: -3819681095382407790, guid: c3dd5e5801008dc4389e4be28e4d8493,
         type: 3}
-      propertyPath: m_Enabled
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2489302850876048126, guid: c3dd5e5801008dc4389e4be28e4d8493,
@@ -23489,6 +23479,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2426e9bc915482a4da465c071b64c9bd, type: 2}
+    - target: {fileID: 3321153643654687595, guid: c3dd5e5801008dc4389e4be28e4d8493,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4224801822505238522, guid: c3dd5e5801008dc4389e4be28e4d8493,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3dd5e5801008dc4389e4be28e4d8493, type: 3}
 --- !u!1 &1141117327 stripped

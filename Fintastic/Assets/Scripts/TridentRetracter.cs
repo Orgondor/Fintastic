@@ -10,6 +10,23 @@ public class TridentRetracter : MonoBehaviour
     public SteamVR_Input_Sources inputSource = SteamVR_Input_Sources.Any;//which controller
                                                                          // Use this for initialization
 
+    private Vector3 initPosition;
+    private Rigidbody rigidbody;
+    private void Awake()
+    {
+        initPosition = this.transform.position;
+        rigidbody = this.GetComponent<Rigidbody>();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown("r"))
+        {
+            this.transform.position = initPosition;
+            this.rigidbody.velocity = Vector3.zero;
+            this.rigidbody.angularVelocity = Vector3.zero;
+        }
+    }
+
     void OnEnable()
     {
         if (grabPinch != null)
